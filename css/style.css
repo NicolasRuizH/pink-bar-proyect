@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#fae1e9;
+  color: #7e26a0;
+}
+
+body, div, ul, a, nav, header, li, label{
+  margin: 0;
+  padding: 0;
+}
+/* ----HEADER */
+header{
+  background-color: #fff;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.header__logo{
+  max-width: 100%;
+  width: 84px;
+  margin: 10px 20px;
+  img {
+    filter: hue-rotate(90deg);/*sirve para cambiar el color*/
+  }  
+}
+.equal__boton{
+  color:#d488ea;
+  font-size: 3rem;
+  font-weight: 600;
+  margin-right:20px;
+  cursor: pointer;
+}
+#boton{
+  display: none;
+}
+.header__nav{
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  height: 92vh;
+  width: 100vw;
+  top: 100%;
+  z-index: 50;
+}
+#boton:checked ~ .header__nav{
+  display: flex;
+}
+.header__nav-list{
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  margin: auto;
+  justify-content: space-evenly;
+  
+  li{
+    list-style: none;
+    a{
+      text-decoration: none;
+      color: #d488ea;
+      font-weight: 800;
+      font-size: 20px;
+    }
+  }
+}
+.header__nav-list li:hover{
+  font-size: 25px;
+  transform: scale(1.1);
+}
+/* MediaQueries HEADER */
+
+@media screen and (min-width:600px){
+  header{
+    display: flex;
+    flex-direction: row;
+  }
+  .header__nav{
+    display: flex;
+    position: static;
+    height: auto;
+    width: auto;
+    margin-right: 20px;
+  }
+  .header__nav-list{
+    flex-direction: row;
+    height: auto;
+    column-gap: 20px;
+  }
+  .equal__boton{
+    display: none;
+  }
+}
+
+
+
+/* -----MAIN */
+.profile{
+  container-type: inline-size;
+  container-name: profile;
+}
+.wrapper__profile{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.profile__img{
+  max-width: 100%;
+  width: 800px;
+}
+.profile__img-cont, .profile__contenido{
+  padding: 20px;
+}
+h1{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 3px;
+}
+p{
+  text-wrap: pretty;
+}
+
+/* MediaQueries PROFILE */
+@container profile (min-width:700px){
+  .wrapper__profile{
+    flex-direction: row;
+    background-color: white;
+    margin: 30px;
+    border-radius: 15px;
+  }
+  .profile__img-cont{
+    width: 50%;
+    padding: 0;
+  }
+  .profile__img{
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  .profile__contenido{
+    width: 50%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+  }
+}
